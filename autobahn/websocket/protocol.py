@@ -1894,7 +1894,7 @@ class WebSocketProtocol(object):
             #schedule new autoping, without waiting for PONG, this will setup new autoPingPending
             if self.autoPingInterval:
                 self.log.debug("Scheduling auto-ping/pong")
-                self.autoPingPendingCall = self.factory._batched_timer.call_later(
+                self.autoPingPendingCall = self._batched_timer.call_later(
                     self.autoPingInterval,
                     self._sendAutoPing,
                 )
